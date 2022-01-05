@@ -19,6 +19,7 @@
 		57A35DC7247681C100C621E9 /* ArticleOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A35DC6247681C000C621E9 /* ArticleOptionViewController.swift */; };
 		57A35DC92476821E00C621E9 /* articleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A35DC82476821E00C621E9 /* articleData.swift */; };
 		57A35DCB247685AC00C621E9 /* SearchOptionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A35DCA247685AC00C621E9 /* SearchOptionData.swift */; };
+		57CA8F2F278661B900E54093 /* apiKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = 57CA8F2E278661B800E54093 /* apiKey.plist */; };
 		57CDC1A324475A0000ED9D4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CDC1A224475A0000ED9D4D /* AppDelegate.swift */; };
 		57CDC1A524475A0000ED9D4D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CDC1A424475A0000ED9D4D /* SceneDelegate.swift */; };
 		57CDC1A724475A0000ED9D4D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CDC1A624475A0000ED9D4D /* ViewController.swift */; };
@@ -46,6 +47,7 @@
 		57A35DC6247681C000C621E9 /* ArticleOptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleOptionViewController.swift; sourceTree = "<group>"; };
 		57A35DC82476821E00C621E9 /* articleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = articleData.swift; sourceTree = "<group>"; };
 		57A35DCA247685AC00C621E9 /* SearchOptionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOptionData.swift; sourceTree = "<group>"; };
+		57CA8F2E278661B800E54093 /* apiKey.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = apiKey.plist; sourceTree = "<group>"; };
 		57CDC19F24475A0000ED9D4D /* TodaysWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodaysWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57CDC1A224475A0000ED9D4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57CDC1A424475A0000ED9D4D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +97,14 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		57CA8F2D2784C33C00E54093 /* ApiKey */ = {
+			isa = PBXGroup;
+			children = (
+				57CA8F2E278661B800E54093 /* apiKey.plist */,
+			);
+			path = ApiKey;
+			sourceTree = "<group>";
+		};
 		57CDC19624475A0000ED9D4D = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +126,7 @@
 		57CDC1A124475A0000ED9D4D /* TodaysWorld */ = {
 			isa = PBXGroup;
 			children = (
+				57CA8F2D2784C33C00E54093 /* ApiKey */,
 				5781EDB7244B21BF00813C61 /* Utils */,
 				57CDC1B824475BA100ED9D4D /* Views */,
 				57CDC1B724475B8E00ED9D4D /* Data */,
@@ -237,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57CDC1AF24475A0300ED9D4D /* LaunchScreen.storyboard in Resources */,
+				57CA8F2F278661B900E54093 /* apiKey.plist in Resources */,
 				57CDC1C22448613400ED9D4D /* GoogleService-Info.plist in Resources */,
 				57CDC1AC24475A0300ED9D4D /* Assets.xcassets in Resources */,
 				57CDC1AA24475A0000ED9D4D /* Main.storyboard in Resources */,

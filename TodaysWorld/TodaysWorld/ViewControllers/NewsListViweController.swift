@@ -13,7 +13,7 @@ import Alamofire
 class NewsListViweController: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
     let baseUrl:String = "https://newsapi.org/v2/"
-    let apiKeyToken:String = "&apiKey=adc755b0a65d48c0ace6e723b8c9cb26"
+    var apiKeyToken:String = "&apiKey="
     
     var articles: Array<Dictionary<String, Any>>?
     var searchOption:SearchOptionData?
@@ -25,6 +25,8 @@ class NewsListViweController: UIViewController,UITableViewDelegate, UITableViewD
         
         newsTable.delegate = self
         newsTable.dataSource = self
+        
+        //todo read apikey from the apikey.plist and update apikeyToken
         
         getArticlesByOption()
     }

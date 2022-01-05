@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DE8-Fb-GVi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DE8-Fb-GVi">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -28,7 +28,7 @@
         <!--LoginViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" userLabel="LoginViewController" customClass="LoginViewController" customModule="BusBooking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" userLabel="LoginViewController" customClass="LoginViewController" customModule="TodaysWorld" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -83,7 +83,7 @@
         <!--Article Option View Controller-->
         <scene sceneID="lju-gW-oeh">
             <objects>
-                <viewController storyboardIdentifier="ArticleOptionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OMD-Vz-pd1" customClass="ArticleOptionViewController" customModule="BusBooking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ArticleOptionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OMD-Vz-pd1" customClass="ArticleOptionViewController" customModule="TodaysWorld" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RRu-sf-6tE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -221,7 +221,7 @@
         <!--MyInfoViewController-->
         <scene sceneID="SFs-TM-EDV">
             <objects>
-                <viewController storyboardIdentifier="MyInfoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="80Q-Ky-oTy" userLabel="MyInfoViewController" customClass="MyInfoViewController" customModule="BusBooking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyInfoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="80Q-Ky-oTy" userLabel="MyInfoViewController" customClass="MyInfoViewController" customModule="TodaysWorld" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Jf-be-QT3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -283,7 +283,7 @@
         <!--News List Viwe Controller-->
         <scene sceneID="ZUL-r0-ECZ">
             <objects>
-                <viewController storyboardIdentifier="NewsListViweController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xRf-Av-XP6" customClass="NewsListViweController" customModule="BusBooking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewsListViweController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xRf-Av-XP6" customClass="NewsListViweController" customModule="TodaysWorld" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Usf-Wt-FQe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -295,7 +295,7 @@
                                     <constraint firstAttribute="height" constant="773" id="7qL-Yo-PEY"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsCell" rowHeight="372" id="TRK-in-LfZ" customClass="NewsCell" customModule="BusBooking" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsCell" rowHeight="372" id="TRK-in-LfZ" customClass="NewsCell" customModule="TodaysWorld" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="372"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TRK-in-LfZ" id="vVF-vm-tHj">
@@ -355,7 +355,7 @@
         <!--Article View Controller-->
         <scene sceneID="fGQ-Tn-r8U">
             <objects>
-                <viewController storyboardIdentifier="ArticleViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Cca-5B-8Kp" customClass="ArticleViewController" customModule="BusBooking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ArticleViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Cca-5B-8Kp" customClass="ArticleViewController" customModule="TodaysWorld" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5Vx-9n-Ap8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -411,7 +411,7 @@
         <!--Original Source View Controller-->
         <scene sceneID="UGY-cE-HiF">
             <objects>
-                <viewController storyboardIdentifier="OriginalSourceViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UXO-5w-DDK" customClass="OriginalSourceViewController" customModule="BusBooking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OriginalSourceViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UXO-5w-DDK" customClass="OriginalSourceViewController" customModule="TodaysWorld" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qbi-iU-o0j">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
