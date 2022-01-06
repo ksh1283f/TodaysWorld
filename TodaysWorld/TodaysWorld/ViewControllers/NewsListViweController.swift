@@ -27,8 +27,15 @@ class NewsListViweController: UIViewController,UITableViewDelegate, UITableViewD
         newsTable.dataSource = self
         
         //todo read apikey from the apikey.plist and update apikeyToken
-        
-        getArticlesByOption()
+        let apiKey = getApiKey()
+        if apiKey != "" {
+            apiKeyToken += apiKey
+            getArticlesByOption()
+        }else {
+            let alertController = UIAlertController(title:"Notice", message: "please make ApiKey/apiKey.plist in the xcode project", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title:"Dismiss", style: .default))
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -57,6 +64,27 @@ class NewsListViweController: UIViewController,UITableViewDelegate, UITableViewD
             }
         }
         return cell
+    }
+    
+    func getApiKey()->String{
+        var result = ""
+//        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+//
+//        let path = paths[0] as NSString
+//        let plist = path.strings(byAppendingPaths: ["ApiKey/apiKey.plist"])[0]
+        if let apiKeyPlistPath = Bundle.main.path(forResource: "apiKey", ofType: "plist"){
+            let data = NSMutableDictionary(contentsOfFile: apiKeyPlistPath)
+            let key = data?.value(forKey: "apiKey") as? String
+            if let _key = key{
+                result = _key
+            }else{
+                
+            }
+        }else {
+            print("apiKeyPlistPath is nil")
+        }
+        
+        return result
     }
     
     func getArticlesByOption(){
