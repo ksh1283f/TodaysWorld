@@ -15,5 +15,11 @@ class NewsCell: UITableViewCell {
     @IBOutlet weak var newsTitle: UILabel!
     var imageUrl:String?
     
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier:String?){
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    }
     
+    required init? (coder aDecoder: NSCoder){
+        super.init(coder: aDecoder)
+    }
 }

@@ -16,7 +16,9 @@ class NewsListViweController: UIViewController,UITableViewDelegate, UITableViewD
     var apiKeyToken:String = "&apiKey="
     
     var articles: Array<Dictionary<String, Any>>?
+    var cachedArticleImageDic:Dictionary<Int, ArticleImageData> = [:]
     var searchOption:SearchOptionData?
+    
     
     @IBOutlet weak var newsTable: UITableView!
     
@@ -25,6 +27,9 @@ class NewsListViweController: UIViewController,UITableViewDelegate, UITableViewD
         
         newsTable.delegate = self
         newsTable.dataSource = self
+        
+        newsTable.estimatedRowHeight = 300
+        newsTable.rowHeight = UITableView.automaticDimension
         
         //todo read apikey from the apikey.plist and update apikeyToken
         let apiKey = getApiKey()
@@ -50,19 +55,11 @@ class NewsListViweController: UIViewController,UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = newsTable.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as! NewsCell
         let index = indexPath.row
-        if let news = self.articles{
-            let article = news[index]
-            if let row = article as? Dictionary<String, Any>{
-                if let title = row["title"] as? String{
-                    cell.newsTitle.text = title
-                }
-                if let imageUrl = row["urlToImage"] as? String{
-                    if let imageData = try? Data(contentsOf: URL(string:imageUrl)!){
-                        cell.newsImage.image = UIImage(data:imageData)
-                    }
-                }
-            }
-        }
+        
+        cell.newsTitle.text = self.cachedArticleImageDic[index]?.title
+        cell.newsImage.image = self.cachedArticleImageDic[index]?.image
+        cell.setNeedsLayout()
+        
         return cell
     }
     
@@ -119,10 +116,23 @@ class NewsListViweController: UIViewController,UITableViewDelegate, UITableViewD
                     let json = try JSONSerialization.jsonObject(with: dataJson, options: []) as! Dictionary<String, Any>
                         let newArticle = json["articles"] as! Array<Dictionary<String, Any>>
                         self.articles = newArticle
-                        
-                        DispatchQueue.main.async {
-                            self.newsTable.reloadData()
+                    
+                    for (index, article) in newArticle.enumerated(){
+                        if let row = article as? Dictionary<String, Any>{
+                            if let rowTitle = row["title"] as? String{
+                                if let rowImage = row["urlToImage"] as? String{
+                                    if let imageData = try? Data(contentsOf: URL(string:rowImage)!){
+                                        let cachedItem = ArticleImageData(image: UIImage(data: imageData)!, title: rowTitle)
+                                        self.cachedArticleImageDic[index] = cachedItem
+                                    }
+                                }
+                            }
                         }
+                    }
+                        
+                    DispatchQueue.main.async {
+                        self.newsTable.reloadData()
+                    }
                 }catch{
                     let alertController = UIAlertController(title:"Notice", message: "please retry load the articles", preferredStyle: .alert)
                     alertController.addAction(UIAlertAction(title:"Dismiss", style: .default))
@@ -195,4 +205,27 @@ class NewsListViweController: UIViewController,UITableViewDelegate, UITableViewD
         }
     }
     
+}
+
+extension UIImageView{
+    public func imageLoad(urlString: String, placeholder:UIImage?, completion: @escaping()->()){
+        if self.image == nil {
+            self.image = placeholder
+        }
+        
+        URLSession.shared.dataTask(with: NSURL(string: urlString)! as URL, completionHandler: {(data, response, error) -> Void in
+            if error != nil{
+                print(error)
+                return
+            }
+            
+            DispatchQueue.main.async(execute:{ () -> Void in
+                let image = UIImage(data:data!)
+                self.image = image
+                self.setNeedsLayout()
+                completion()    // tableView에서 이미지 변경 후 셀을 갱신해줄 수 있도록
+            })
+            
+        }).resume()
+    }
 }

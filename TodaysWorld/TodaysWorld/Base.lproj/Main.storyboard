@@ -45,6 +45,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgK-qt-JOX">
                                 <rect key="frame" x="87" y="497" width="222" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Show my info"/>
                                 <connections>
                                     <segue destination="80Q-Ky-oTy" kind="show" id="jyA-UJ-2ZY"/>
@@ -53,6 +54,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dk9-SX-SOo" userLabel="BtnSignOut">
                                 <rect key="frame" x="87" y="797" width="222" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="sign out"/>
                                 <connections>
                                     <action selector="OnClickedBtnSignOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Td7-Jm-GgE"/>
@@ -295,20 +297,20 @@
                                     <constraint firstAttribute="height" constant="773" id="7qL-Yo-PEY"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsCell" rowHeight="372" id="TRK-in-LfZ" customClass="NewsCell" customModule="TodaysWorld" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="372"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsCell" rowHeight="188" id="TRK-in-LfZ" customClass="NewsCell" customModule="TodaysWorld" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="188"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TRK-in-LfZ" id="vVF-vm-tHj">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="372"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="188"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="QwW-Ib-tgb">
-                                                    <rect key="frame" x="0.0" y="1" width="414" height="370"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="google.png" translatesAutoresizingMaskIntoConstraints="NO" id="QwW-Ib-tgb">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="188"/>
                                                     <color key="backgroundColor" systemColor="darkTextColor"/>
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t2b-gj-L42">
-                                                    <rect key="frame" x="0.0" y="279" width="414" height="93"/>
+                                                    <rect key="frame" x="0.0" y="123.5" width="414" height="64.5"/>
                                                     <string key="text">TitletitletitletitleTitletitletitletitleTitletitletitletitleTitletitletitletitleTitletitletitletitleTitletitletitletitleTitletitletitletitleTitletitletitletitle</string>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                     <color key="textColor" systemColor="systemBackgroundColor"/>
@@ -316,14 +318,13 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="QwW-Ib-tgb" secondAttribute="trailing" id="1Be-sT-6o9"/>
-                                                <constraint firstItem="t2b-gj-L42" firstAttribute="leading" secondItem="vVF-vm-tHj" secondAttribute="leading" id="88K-It-3P1"/>
-                                                <constraint firstAttribute="trailing" secondItem="t2b-gj-L42" secondAttribute="trailing" id="BAE-9J-Gzn"/>
-                                                <constraint firstItem="QwW-Ib-tgb" firstAttribute="top" secondItem="vVF-vm-tHj" secondAttribute="top" id="IbI-20-Rjx"/>
-                                                <constraint firstItem="t2b-gj-L42" firstAttribute="top" secondItem="vVF-vm-tHj" secondAttribute="top" constant="279" id="Wns-eS-fQI"/>
-                                                <constraint firstItem="QwW-Ib-tgb" firstAttribute="leading" secondItem="vVF-vm-tHj" secondAttribute="leading" id="hrv-1l-7kv"/>
-                                                <constraint firstAttribute="bottom" secondItem="QwW-Ib-tgb" secondAttribute="bottom" constant="-0.5" id="lbJ-Fh-UU2"/>
-                                                <constraint firstAttribute="bottom" secondItem="t2b-gj-L42" secondAttribute="bottom" id="zEX-1h-Ffw"/>
+                                                <constraint firstAttribute="trailing" secondItem="QwW-Ib-tgb" secondAttribute="trailing" id="3fP-ok-Qtt"/>
+                                                <constraint firstItem="t2b-gj-L42" firstAttribute="bottom" secondItem="QwW-Ib-tgb" secondAttribute="bottom" id="Hpn-Sj-Kff"/>
+                                                <constraint firstAttribute="trailing" secondItem="t2b-gj-L42" secondAttribute="trailing" id="Ipr-fd-xp3"/>
+                                                <constraint firstAttribute="bottom" secondItem="QwW-Ib-tgb" secondAttribute="bottom" id="RAI-61-KeD"/>
+                                                <constraint firstItem="t2b-gj-L42" firstAttribute="leading" secondItem="vVF-vm-tHj" secondAttribute="leading" id="oyn-yY-ZX2"/>
+                                                <constraint firstItem="QwW-Ib-tgb" firstAttribute="leading" secondItem="vVF-vm-tHj" secondAttribute="leading" id="tgv-4d-Age"/>
+                                                <constraint firstItem="QwW-Ib-tgb" firstAttribute="top" secondItem="vVF-vm-tHj" secondAttribute="top" id="wsc-5j-ux3"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -448,7 +449,7 @@
         <segue reference="jx3-cW-bzE"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="app.fill" catalog="system" width="128" height="114"/>
+        <image name="google.png" width="18" height="18"/>
         <image name="paperplane" catalog="system" width="128" height="118"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="darkTextColor">

@@ -6,4 +6,14 @@
 //  Copyright © 2022 Seunghyeon Kang. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+struct ArticleImageData{
+    var image:UIImage
+    var title: String?
+    
+    init(image:UIImage, title:String){
+        self.image = image
+        self.title = title
+    }
+}
