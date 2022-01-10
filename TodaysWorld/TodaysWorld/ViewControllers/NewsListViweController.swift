@@ -59,6 +59,7 @@ class NewsListViweController: UIViewController,UITableViewDelegate, UITableViewD
         cell.newsTitle.text = self.cachedArticleImageDic[index]?.title
         cell.newsImage.image = self.cachedArticleImageDic[index]?.image
         cell.setNeedsLayout()
+       
         
         return cell
     }
@@ -205,27 +206,4 @@ class NewsListViweController: UIViewController,UITableViewDelegate, UITableViewD
         }
     }
     
-}
-
-extension UIImageView{
-    public func imageLoad(urlString: String, placeholder:UIImage?, completion: @escaping()->()){
-        if self.image == nil {
-            self.image = placeholder
-        }
-        
-        URLSession.shared.dataTask(with: NSURL(string: urlString)! as URL, completionHandler: {(data, response, error) -> Void in
-            if error != nil{
-                print(error)
-                return
-            }
-            
-            DispatchQueue.main.async(execute:{ () -> Void in
-                let image = UIImage(data:data!)
-                self.image = image
-                self.setNeedsLayout()
-                completion()    // tableView에서 이미지 변경 후 셀을 갱신해줄 수 있도록
-            })
-            
-        }).resume()
-    }
 }
