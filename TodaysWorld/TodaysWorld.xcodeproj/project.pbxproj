@@ -13,8 +13,6 @@
 		576DAE0F2477F24000618FA8 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576DAE0E2477F23F00618FA8 /* ArticleViewController.swift */; };
 		5781EDB6244B11C900813C61 /* GoogleUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781EDB5244B11C900813C61 /* GoogleUserData.swift */; };
 		5781EDB9244B21D200813C61 /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781EDB8244B21D200813C61 /* Singleton.swift */; };
-		57A35DC12472595A00C621E9 /* GetBusInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A35DC02472595A00C621E9 /* GetBusInfoViewController.swift */; };
-		57A35DC32473EB5300C621E9 /* BusListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A35DC22473EB5300C621E9 /* BusListViewController.swift */; };
 		57A35DC52473F64700C621E9 /* MyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A35DC42473F64700C621E9 /* MyInfoViewController.swift */; };
 		57A35DC7247681C100C621E9 /* ArticleOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A35DC6247681C000C621E9 /* ArticleOptionViewController.swift */; };
 		57A35DC92476821E00C621E9 /* articleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A35DC82476821E00C621E9 /* articleData.swift */; };
@@ -28,8 +26,6 @@
 		57CDC1AC24475A0300ED9D4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57CDC1AB24475A0300ED9D4D /* Assets.xcassets */; };
 		57CDC1AF24475A0300ED9D4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57CDC1AD24475A0300ED9D4D /* LaunchScreen.storyboard */; };
 		57CDC1BA24475BE800ED9D4D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CDC1B924475BE800ED9D4D /* LoginViewController.swift */; };
-		57CDC1BC24475DF300ED9D4D /* BusData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CDC1BB24475DF300ED9D4D /* BusData.swift */; };
-		57CDC1C024485BA600ED9D4D /* CityData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CDC1BF24485BA600ED9D4D /* CityData.swift */; };
 		57CDC1C22448613400ED9D4D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 57CDC1C12448613400ED9D4D /* GoogleService-Info.plist */; };
 		F682F6595363B086D5654909 /* Pods_TodaysWorld.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B280121065CC57C1568FB15E /* Pods_TodaysWorld.framework */; };
 /* End PBXBuildFile section */
@@ -42,8 +38,6 @@
 		576DAE0E2477F23F00618FA8 /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		5781EDB5244B11C900813C61 /* GoogleUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleUserData.swift; sourceTree = "<group>"; };
 		5781EDB8244B21D200813C61 /* Singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
-		57A35DC02472595A00C621E9 /* GetBusInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBusInfoViewController.swift; sourceTree = "<group>"; };
-		57A35DC22473EB5300C621E9 /* BusListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusListViewController.swift; sourceTree = "<group>"; };
 		57A35DC42473F64700C621E9 /* MyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewController.swift; sourceTree = "<group>"; };
 		57A35DC6247681C000C621E9 /* ArticleOptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleOptionViewController.swift; sourceTree = "<group>"; };
 		57A35DC82476821E00C621E9 /* articleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = articleData.swift; sourceTree = "<group>"; };
@@ -59,8 +53,6 @@
 		57CDC1AE24475A0300ED9D4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		57CDC1B024475A0300ED9D4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57CDC1B924475BE800ED9D4D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		57CDC1BB24475DF300ED9D4D /* BusData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusData.swift; sourceTree = "<group>"; };
-		57CDC1BF24485BA600ED9D4D /* CityData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityData.swift; sourceTree = "<group>"; };
 		57CDC1C12448613400ED9D4D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A32150029EDE9BD02078AB2D /* Pods-BusBooking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BusBooking.release.xcconfig"; path = "Target Support Files/Pods-BusBooking/Pods-BusBooking.release.xcconfig"; sourceTree = "<group>"; };
 		B280121065CC57C1568FB15E /* Pods_TodaysWorld.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodaysWorld.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,8 +141,6 @@
 			children = (
 				57CDC1A624475A0000ED9D4D /* ViewController.swift */,
 				57CDC1B924475BE800ED9D4D /* LoginViewController.swift */,
-				57A35DC02472595A00C621E9 /* GetBusInfoViewController.swift */,
-				57A35DC22473EB5300C621E9 /* BusListViewController.swift */,
 				57A35DC42473F64700C621E9 /* MyInfoViewController.swift */,
 				57A35DC6247681C000C621E9 /* ArticleOptionViewController.swift */,
 				576DAE0A2477E29300618FA8 /* NewsListViweController.swift */,
@@ -163,8 +153,6 @@
 		57CDC1B724475B8E00ED9D4D /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				57CDC1BB24475DF300ED9D4D /* BusData.swift */,
-				57CDC1BF24485BA600ED9D4D /* CityData.swift */,
 				5781EDB5244B11C900813C61 /* GoogleUserData.swift */,
 				57A35DC82476821E00C621E9 /* articleData.swift */,
 				57A35DCA247685AC00C621E9 /* SearchOptionData.swift */,
@@ -327,11 +315,8 @@
 				57CDC1BA24475BE800ED9D4D /* LoginViewController.swift in Sources */,
 				5781EDB9244B21D200813C61 /* Singleton.swift in Sources */,
 				57A35DC92476821E00C621E9 /* articleData.swift in Sources */,
-				57CDC1C024485BA600ED9D4D /* CityData.swift in Sources */,
 				57CDC1A724475A0000ED9D4D /* ViewController.swift in Sources */,
-				57A35DC32473EB5300C621E9 /* BusListViewController.swift in Sources */,
 				57CDC1A324475A0000ED9D4D /* AppDelegate.swift in Sources */,
-				57A35DC12472595A00C621E9 /* GetBusInfoViewController.swift in Sources */,
 				5781EDB6244B11C900813C61 /* GoogleUserData.swift in Sources */,
 				57A35DCB247685AC00C621E9 /* SearchOptionData.swift in Sources */,
 				57CDC1A524475A0000ED9D4D /* SceneDelegate.swift in Sources */,
@@ -341,7 +326,6 @@
 				576DAE0F2477F24000618FA8 /* ArticleViewController.swift in Sources */,
 				576DAE0D2477E6D900618FA8 /* NewsCell.swift in Sources */,
 				57A35DC52473F64700C621E9 /* MyInfoViewController.swift in Sources */,
-				57CDC1BC24475DF300ED9D4D /* BusData.swift in Sources */,
 				576DAE0B2477E29300618FA8 /* NewsListViweController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
