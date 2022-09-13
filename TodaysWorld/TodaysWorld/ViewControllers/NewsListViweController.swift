@@ -30,8 +30,7 @@ class NewsListViweController: UIViewController,UITableViewDelegate, UITableViewD
         
         newsTable.estimatedRowHeight = 300
         newsTable.rowHeight = UITableView.automaticDimension
-        
-        //todo read apikey from the apikey.plist and update apikeyToken
+    
         let apiKey = getApiKey()
         if apiKey != "" {
             apiKeyToken += apiKey
@@ -123,8 +122,9 @@ class NewsListViweController: UIViewController,UITableViewDelegate, UITableViewD
                             if let rowTitle = row["title"] as? String{
                                 if let rowImage = row["urlToImage"] as? String{
                                     if let imageData = try? Data(contentsOf: URL(string:rowImage)!){
-                                        let cachedItem = ArticleImageData(image: UIImage(data: imageData)!, title: rowTitle)
-                                        self.cachedArticleImageDic[index] = cachedItem
+//                                        let cachedItem = ArticleImageData(image: UIImage(data: imageData)!, title: rowTitle)
+//                                        let cachedItem = ArticleImageData(image: UIImage(data: imageData), title: rowTitle, source: <#T##String#>, desc: <#T##String#>)
+//                                        self.cachedArticleImageDic[index] = cachedItem
                                     }
                                 }
                             }

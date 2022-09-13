@@ -15,7 +15,7 @@ enum E_Language:String, CaseIterable{
     case EnglishUS       = "en"
     case EnglishUK       = "en-GB"
     case EnglishAu       = "en-AU"
-    case EnglisCa        = "en-CA"
+    case EnglishCa        = "en-CA"
     case EnglishIn       = "en-IN"
     case French          = "fr"
     case FrenchCa        = "fr-CA"
@@ -40,7 +40,7 @@ extension E_Language{
         case .None
             ,.EnglishUK
             ,.EnglishAu
-            ,.EnglisCa
+            ,.EnglishCa
             ,.EnglishIn:
             return "en"
         case .French
@@ -65,8 +65,47 @@ extension E_Language{
             return self.rawValue
         }
     }
-}
+    
+    var getStringType:String{
+        var result = ""
+        switch self {
+        case .EnglishUS:
+            result = "🇺🇸"
+        case .EnglishUK:
+            result = "🇬🇧"
+        case .ChineseHK:
+            result = "🇭🇰"
+        case .EnglishCa:
+            result = "🇨🇦"
+        case .EnglishAu:
+            result = "🇦🇺"
+        case .French, .FrenchCa:
+            result = "🇫🇷"
+        case .Spanish:
+            result = "🇪🇸"
+        case .SpanishMex:
+            result = "🇲🇽"
+        case .Portuguese:
+            result = "🇵🇹"
+        case .PortugueseBr:
+            result = "🇧🇷"
+        case .Chinese, .ChineseSim:
+            result = "🇨🇳"
+        case .ChineseTrad:
+            result = "🇹🇼"
+        case .Norwegian:
+            result = "🇳🇴"
+        case .Swedish:
+            result = "🇸🇪"
 
+        default:
+            result = ""
+        }
+        
+        return result + self.rawValue
+    }
+}
+//source
 enum E_Region:String, CaseIterable{
     case None = ""
     case Argentina = "ar"
@@ -123,6 +162,124 @@ enum E_Region:String, CaseIterable{
     case UnitedKingdom = "gb"
     case UnitedStates = "us"
     case Venuzuela =  "ve"
+    
+    var getStringType: String{
+        var result = ""
+        switch self{
+            case .Argentina:
+                result = "🇦🇷"
+            case .Australia:
+                result = "🇦🇺"
+            case .Austria:
+                result = "🇦🇹"
+            case .Belgium:
+                result = "🇧🇪"
+            case .Brazil:
+                result = "🇧🇷"
+            case .Bulgaria:
+                result = "🇧🇬"
+            case .Canada:
+                result = "🇨🇦"
+            case .China:
+                result = "🇨🇳"
+            case .Colombia:
+                result = "🇨🇴"
+            case .Cuba:
+                result = "🇨🇺"
+            case .CzechRepublic:
+                result = "🇨🇿"
+            case .Egypt:
+                result = "🇪🇬"
+            case .France:
+                result = "🇫🇷"
+            case .Germany:
+                result = "🇩🇪"
+            case .Greece:
+                result = "🇬🇷"
+            case .HongKong:
+                result = "🇭🇰"
+            case .Hungary:
+                result = "🇭🇺"
+            case .India:
+                result = "🇮🇳"
+            case .Indonesia:
+                result = "🇮🇩"
+            case .Ireland:
+                result = "🇮🇪"
+            case .Israel:
+                result = "🇮🇱"
+            case .Italy:
+                result = "🇮🇹"
+            case .Japan:
+                result = "🇯🇵"
+            case .Latvia:
+                result = "🇱🇻"
+            case .Lithuania:
+                result = "🇱🇹"
+            case .Malaysia:
+                result = "🇲🇾"
+            case .Mexico:
+                result = "🇲🇽"
+            case .Morocco:
+                result = "🇲🇦"
+            case .Netherlands:
+                result = "🇳🇱"
+            case .NewZealand:
+                result = "🇳🇿"
+            case .Nigeria:
+                result = "🇳🇬"
+            case .Norway:
+                result = "🇳🇴"
+            case .Philippines:
+                result = "🇵🇭"
+            case .Poland:
+                result = "🇵🇱"
+            case .Portugal:
+                result = "🇵🇹"
+            case .Romania:
+                result = "🇷🇴"
+            case .Russia:
+                result = "🇷🇺"
+            case .SaudiArabia:
+                result = "🇸🇦"
+            case .Serbia:
+                result = "🇷🇸"
+            case .Singapore:
+                result = "🇸🇬"
+            case .Slovakia:
+                result = "🇸🇰"
+            case .Slovenia:
+                result = "🇸🇮"
+            case .SouthAfrica:
+                result = "🇿🇦"
+            case .SouthKorea:
+                result = "🇰🇷"
+            case .Sweden:
+                result = "🇸🇪"
+            case .Switzerland:
+                result = "🇨🇭"
+            case .Taiwan:
+                result = "🇹🇼"
+            case .Thailand:
+                result = "🇹🇭"
+            case .Turkey:
+                result = "🇹🇷"
+            case .UAE:
+                result = "🇦🇪"
+            case .Ukraine:
+                result = "🇺🇦"
+            case .UnitedKingdom:
+                result = "🇬🇧"
+            case .UnitedStates:
+                result = "🇺🇸"
+            case .Venuzuela:
+                result = "🇻🇪"
+            default:
+                result = "🏳️"
+        }
+        
+        return result
+    }
 }
 
 enum E_Category:String, CaseIterable{

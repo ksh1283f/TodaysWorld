@@ -8,10 +8,10 @@
 
 import UIKit
 import GoogleSignIn
-import Firebase
+import FirebaseCore
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
 
@@ -20,8 +20,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // Override point for customization after application launch.
         // Use Firebase library to configure APIs
         FirebaseApp.configure()
-        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
-        GIDSignIn.sharedInstance().delegate = self
+        
+        // 사용자의 로그인 상태 복원 시도
+        GIDSignIn.sharedInstance.restorePreviousSignIn{ user, error in
+            if error != nil || user == nil{
+                // show the app's signed-out state
+            }else{
+                // show the app's signed-in state.
+            }
+            //return true
+        }
+        
         return true
     }
 
@@ -42,45 +51,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     @available(iOS 9.0, *)
     func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any])
       -> Bool {
-        return GIDSignIn.sharedInstance().handle(url)
+          return GIDSignIn.sharedInstance.handle(url)
     }
     
     // 로그인됐을때
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
-      if let error = error {
-        if (error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {
-          print("The user has not signed in before or they have since signed out.")
-        } else {
-          print("\(error.localizedDescription)")
-        }
-        
-        if let viewController = GIDSignIn.sharedInstance()?.presentingViewController as? LoginViewController{
-            viewController.onLogin(isSuccess: false)
-        }
-        
-        return
-      }
-      // Perform any operations on signed in user here.
-        if let viewController = GIDSignIn.sharedInstance()?.presentingViewController as? LoginViewController{
-            viewController.onLogin(isSuccess: true)
-        }
-        
-        guard let authentication = user.authentication else { return }
-        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
-                                                          accessToken: authentication.accessToken)
-        
-        Auth.auth().signIn(with: credential) { (authResult, error) in
-          if let error = error {
-            // ...
-            return
-          }
-          // User is signed in
-            print("user credential is added to firebase successfully")
-          // ...
-        }
-    }
-    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
-        // Perform any operations when the user disconnects from app here.
-        // ...
-    }
+//    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
+//      if let error = error {
+//        if (error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {
+//          print("The user has not signed in before or they have since signed out.")
+//        } else {
+//          print("\(error.localizedDescription)")
+//        }
+//
+//        if let viewController = GIDSignIn.sharedInstance()?.presentingViewController as? LoginViewController{
+//            viewController.onLogin(isSuccess: false)
+//        }
+//
+//        return
+//      }
+//      // Perform any operations on signed in user here.
+//        if let viewController = GIDSignIn.sharedInstance()?.presentingViewController as? LoginViewController{
+//            viewController.onLogin(isSuccess: true)
+//        }
+//
+//        guard let authentication = user.authentication else { return }
+//        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+//                                                          accessToken: authentication.accessToken)
+//
+//        Auth.auth().signIn(with: credential) { (authResult, error) in
+//          if let error = error {
+//            // ...
+//            return
+//          }
+//          // User is signed in
+//            print("user credential is added to firebase successfully")
+//          // ...
+//        }
+//    }
+//    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+//        // Perform any operations when the user disconnects from app here.
+//        // ...
+//    }
 }

@@ -9,46 +9,109 @@
 import Foundation
 import UIKit
 import GoogleSignIn
+import FirebaseAuth
+import FirebaseCore
+import Firebase
 
-class MyInfoViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
+class MyInfoViewController: UIViewController{//,UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var imageMyPicture: UIImageView!
     @IBOutlet weak var labelMyInfo: UILabel!
-    @IBOutlet weak var btnFindBus: UIButton!
-    @IBOutlet weak var LanguagePicker: UIPickerView!
+    @IBOutlet weak var btnGoogleLogin: UIButton!
+    
     var languages:[E_Language]?
     var selectedLanguage:E_Language = .None
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.LanguagePicker.dataSource = self
-        self.LanguagePicker.delegate = self
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        }catch let signOutError as NSError {
+            print("error signing out : %@", signOutError)
+        }
         
-        if let instance = GIDSignIn.sharedInstance(){
-            if let user = instance.currentUser{
-                // myInfo
-                labelMyInfo.text = user.profile.givenName+" "+user.profile.familyName+"\n"+user.profile.email
-                // profile image
-                if user.profile.hasImage{
-                    let dimension = round(374 * UIScreen.main.scale)
-                    let pic = user.profile.imageURL(withDimension: UInt(dimension))
-                    if let data = try? Data(contentsOf: pic!){
-                        // data객체를 이용하여 UIImage 초기화(Main thread)
-                        DispatchQueue.main.async {
-                            self.imageMyPicture.image = UIImage(data: data)
+        imageMyPicture.layer.masksToBounds = true
+        imageMyPicture.layer.cornerRadius = imageMyPicture.bounds.width / 2
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        updateLoginStatus()
+        btnGoogleLogin.titleLabel?.text = ""
+        self.tabBarController?.navigationItem.title = self.title
+    }
+    
+    @IBAction func onClickedBtnGoogleLogin(_ sender: Any) {
+        LoadingView.startLoading()
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+        let signInConfig = GIDConfiguration.init(clientID: clientID)
+        
+        GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { [unowned self] user, error in
+            if let err = error{
+                let alert = UIAlertController(title: "Login failed", message: err.localizedDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title:"Ok", style: .default){ _ in
+                    LoadingView.endLoading()
+                    return })
+                self.present(alert, animated: true, completion: nil)
+                return
+            }
+            
+            guard
+                let authentication = user?.authentication,
+                let idToken = authentication.idToken
+            else { return }
+            
+            let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: authentication.accessToken)
+
+            Auth.auth().signIn(with: credential){ authResult, error in
+                if let err = error{
+                    print("login failed: \(err.localizedDescription)")
+                    LoadingView.endLoading()
+                }else{
+                    print("login success")
+                    updateLoginStatus()
+                    
+                }
+            }
+        }
+    }
+    
+    
+    func updateLoginStatus(){
+        if let user = Auth.auth().currentUser{
+            btnGoogleLogin.isHidden = true
+            guard let userName = user.displayName else { return }
+            DispatchQueue.main.async {
+                self.labelMyInfo.text = userName
+            }
+
+            if let profile = user.photoURL{
+                if let data = try? Data(contentsOf: profile) {
+                    DispatchQueue.main.async {
+                        self.btnGoogleLogin.isHidden = true
+                        self.imageMyPicture.image = UIImage(data: data)
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+                            LoadingView.endLoading()
                         }
                     }
                 }
-                
-            }else{
-                labelMyInfo.text = "there is no login info"
             }
+            
+            
+        }else{
+            btnGoogleLogin.isHidden = false
+            DispatchQueue.main.async {
+                self.labelMyInfo.text = "Anonymous user"
+            }
+            LoadingView.endLoading()
         }
-        
-        initMyLanguage()
     }
     
+    
+    
+    //------------------------------------------------------------
     func initMyLanguage(){
         let localeID = Locale.preferredLanguages.first
         let deviceLocale = (Locale(identifier: localeID!).languageCode)!
@@ -68,25 +131,6 @@ class MyInfoViewController: UIViewController,UIPickerViewDelegate, UIPickerViewD
                 selectedLanguage = language
             }
         }
-    }
-    
-    // The number of rows of data
-     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return languages!.count
-     }
-     
-     // Number of columns of data
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-     
-     // The data to return fopr the row and component (column) that's being passed in
-     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-             return "\(languages![row])"
-     }
-    
-    private func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
-        selectedLanguage = languages![row]
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

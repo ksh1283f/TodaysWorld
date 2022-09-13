@@ -25,16 +25,16 @@ class GoogleUserData{
     public let hasImage:Bool
     public let profileImage:NSURL?
     
-    public init(gUser:GIDGoogleUser!) {
-        userId = gUser.userID
-        idToken = gUser.authentication.idToken
-        fullName = gUser.profile.name
-        givenName = gUser.profile.givenName
-        familyName = gUser.profile.familyName
-        email = gUser.profile.email
-        hasImage = gUser.profile.hasImage
+    public init(gUser:GIDGoogleUser) {
+        userId = ""//gUser.userID
+        idToken = ""//gUser.authentication.idToken
+        fullName = ""//gUser.profile.name
+        givenName = ""//gUser.profile.givenName
+        familyName = ""//gUser.profile?.familyName
+        email = ""//gUser.profile.email
+        hasImage = false//gUser.profile.hasImage
         if hasImage {
-            profileImage = gUser.profile.imageURL(withDimension: 100) as! NSURL
+            profileImage = nil//gUser.profile.imageURL(withDimension: 100) as! NSURL
         }else{
             profileImage = nil
         }
